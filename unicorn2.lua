@@ -74,6 +74,7 @@
         platforms { "x86", "x64" }
 
         filter "configurations:Debug"
+            symbols     "On"
             defines     { "_DEBUG" }
 
         filter "configurations:Release"
