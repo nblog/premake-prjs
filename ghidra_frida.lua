@@ -35,11 +35,12 @@ local FRIDA_VERSION = "15.2.2"
     end
 
     io.writefile("ghidra_wrapper.def", output_content)
+    io.writefile("ghidra_wrapper.cc", wrapper_content)
 end)()
 
 
 
-solution "libfrida-core"
+solution "ghidra_wrapper"
     location( _ACTION )
 
     configurations { "Release", "Debug" }
@@ -69,7 +70,7 @@ project "libfrida-core"
     targetname ("frida-core")
 
     files { 
-        "%{prj.basedir}/ghidra_wrapper.c", 
+        "%{prj.basedir}/ghidra_wrapper.cc", 
     }
 
     filter { "system:windows", "platforms:x64" }
