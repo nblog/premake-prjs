@@ -1,4 +1,7 @@
 
+--- APIs are different
+--- 16.x  script debugger
+--- 15.x  session debugger
 local FRIDA_VERSION = "15.2.2"
 
 (function()
