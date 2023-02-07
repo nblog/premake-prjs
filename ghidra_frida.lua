@@ -1,12 +1,13 @@
 
 local FRIDA_VERSION = "15.2.2"
+local FRIDA_CORE_DEVKIT_X86 = "frida-core-devkit-" .. FRIDA_VERSION .. "-windows-x86"
+local FRIDA_CORE_DEVKIT_X86_64 = "frida-core-devkit-" .. FRIDA_VERSION .. "-windows-x86_64"
 
 (function()
     --- clone frida
     local frida = "https://github.com/frida/frida/releases/download/" .. FRIDA_VERSION .. "/"
     local frida_core_devkit = { 
-        frida .. "frida-core-devkit-" .. FRIDA_VERSION .. "-windows-x86.tar.xz", 
-        frida .. "frida-core-devkit-" .. FRIDA_VERSION .. "-windows-x86_64.tar.xz" }
+        FRIDA_CORE_DEVKIT_X86 .. ".tar.xz", FRIDA_CORE_DEVKIT_X86_64 .. ".tar.xz" }
 
     for idx, url in ipairs(frida_core_devkit) do
         local target = path.getname(url)
@@ -75,11 +76,11 @@ project "libfrida-core"
 
     filter { "system:windows", "platforms:x64" }
         includedirs {
-            "%{prj.basedir}/frida-core-devkit-15.2.2-windows-x86_64",
+            "%{prj.basedir}/" .. FRIDA_CORE_DEVKIT_X86_64,
         }
-        libdirs { "%{prj.basedir}/frida-core-devkit-15.2.2-windows-x86_64", }
+        libdirs { "%{prj.basedir}/" .. FRIDA_CORE_DEVKIT_X86_64, }
     filter { "system:windows", "platforms:x86" }
         includedirs {
-            "%{prj.basedir}/frida-core-devkit-15.2.2-windows-x86",
+            "%{prj.basedir}/" .. FRIDA_CORE_DEVKIT_X86,
         }
-        libdirs { "%{prj.basedir}/frida-core-devkit-15.2.2-windows-x86", }
+        libdirs { "%{prj.basedir}/" .. FRIDA_CORE_DEVKIT_X86, }
