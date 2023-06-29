@@ -2,6 +2,7 @@
 --- APIs are different
 --- 16.x  script debugger
 --- 15.x  session debugger
+--- output：Ghidra\patch\win32-x86-64\frida-core.dll (Please be the same as the jdk bit version)
 local FRIDA_VERSION = "15.2.2"
 local FRIDA_CORE_DEVKIT_X86 = "frida-core-devkit-" .. FRIDA_VERSION .. "-windows-x86"
 local FRIDA_CORE_DEVKIT_X86_64 = "frida-core-devkit-" .. FRIDA_VERSION .. "-windows-x86_64"
